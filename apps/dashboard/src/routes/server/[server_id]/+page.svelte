@@ -8,7 +8,7 @@
 {#if $server.isPending}
 	is loading!!!
 {:else if $server.error}
-	COULDNT LOAD IT!!!
+	{$server.error}
 {:else}
 	<h1>{$server.data.display_name}</h1>
 	<p>server id: {$server.data.id}</p>
