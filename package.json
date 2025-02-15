@@ -1,0 +1,20 @@
+{
+	"name": "@ribbonette/code",
+	"author": "HAKUMI",
+	"repository": "https://github.com/ribbonette/code.git",
+	"license": "AGPL-3.0-only",
+	"private": true,
+	"version": "0.0.0",
+	"scripts": {
+		"backend:build": "turbo run build --filter=@ribbonette/backend",
+		"backend:dev": "turbo run dev --filter=@ribbonette/backend",
+		"web:build": "turbo run build --filter=@ribbonette/dashboard --filter=@ribbonette/frontend",
+		"web:dev": "turbo run dev --filter=@ribbonette/dashboard --filter=@ribbonette/frontend",
+		"build": "turbo run build --continue"
+	},
+	"workspaces": ["apps/*", "crates/ribbon"],
+	"devDependencies": {
+		"turbo": "^2.4.2"
+	},
+	"packageManager": "yarn@1.22.22"
+}

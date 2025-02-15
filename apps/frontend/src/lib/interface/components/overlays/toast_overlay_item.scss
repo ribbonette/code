@@ -1,0 +1,45 @@
+.toast_overlay_item {
+	align-items: center;
+	animation: animation_toast 6s forwards;
+	background: hsl(0 0% 15%);
+	border-radius: 12px;
+	box-shadow: inset 0 0 0 1px #ffffff1a;
+	display: flex;
+	height: 48px;
+	padding-left: 8px;
+	pointer-events: all;
+	width: fit-content;
+	&.fade {
+		animation: animation_toast_fade .5s forwards;
+	}
+	.icon {
+		align-items: center;
+		color: hsl(0 0% 80%);
+		display: flex;
+		height: 48px;
+		justify-content: center;
+		width: 48px;
+	}
+	p {
+		color: hsl(0 0% 70%);
+		font-size: .9em;
+		font-weight: 400;
+		margin: 0 20px 0 0;
+		w {
+			color: #fff;
+		}
+	}
+	button {
+		all: unset;
+		border-left: 1px solid #ffffff1a;
+		cursor: pointer;
+		font-size: .8em;
+		font-weight: 500;
+		height: 100%;
+		padding: 0 16px;
+		transition: background .5s;
+		&:hover {
+			background: #ffffff0a;
+		}
+	}
+}

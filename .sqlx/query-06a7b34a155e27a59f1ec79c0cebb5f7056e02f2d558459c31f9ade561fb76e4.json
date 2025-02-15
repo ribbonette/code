@@ -1,0 +1,40 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n\t\t\tSELECT connectors, criteria, display_name, id\n\t\t\tFROM server_member_links\n\t\t\tWHERE server_id = $1\n\t\t\t",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "connectors",
+        "type_info": "Jsonb"
+      },
+      {
+        "ordinal": 1,
+        "name": "criteria",
+        "type_info": "Jsonb"
+      },
+      {
+        "ordinal": 2,
+        "name": "display_name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "id",
+        "type_info": "Int8"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Int8"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "06a7b34a155e27a59f1ec79c0cebb5f7056e02f2d558459c31f9ade561fb76e4"
+}

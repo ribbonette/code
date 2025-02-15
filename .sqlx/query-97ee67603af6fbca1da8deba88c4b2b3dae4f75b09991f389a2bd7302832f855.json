@@ -1,0 +1,14 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n\t\t\t\t\tINSERT INTO users (id)\n\t\t\t\t\tVALUES ($1)\n\t\t\t\t\t",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Int8"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "97ee67603af6fbca1da8deba88c4b2b3dae4f75b09991f389a2bd7302832f855"
+}

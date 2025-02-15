@@ -1,0 +1,42 @@
+cargo-features = ["edition2024"]
+
+[package]
+name = "ribbon_frontend"
+description = "HAKUMI's Backend Service"
+
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+homepage.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+actix-cors = "0.7.0"
+actix-multipart = "0.7.2"
+actix-web.workspace = true
+base64.workspace = true
+chrono.workspace = true
+dashmap.workspace = true
+jsonwebtoken.workspace = true
+log.workspace = true
+once_cell.workspace = true
+p384 = { features = ["serde"], workspace = true }
+reqwest = { features = ["json"], workspace = true }
+sqlx.workspace = true
+serde.workspace = true
+serde-aux.workspace = true
+serde_cbor_2 = "0.12.0-dev"
+serde_with = "3.9.0"
+tokio.workspace = true
+thiserror.workspace = true
+uuid.workspace = true
+serde_json.workspace = true
+ribbon_util.path = "../ribbon_util"
+ribbon_cache.path = "../ribbon_cache"
+ribbon_models.path = "../ribbon_models"
+ribbon_syncing.path = "../ribbon_syncing"
+twilight-model.workspace = true
+urlencoding.workspace = true
+validator.workspace = true

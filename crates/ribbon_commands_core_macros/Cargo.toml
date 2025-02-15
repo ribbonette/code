@@ -1,0 +1,22 @@
+cargo-features = ["edition2024"]
+
+[package]
+name = "ribbon_commands_core_macros"
+description = "slash command proc-macros for mellow"
+
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+homepage.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[lib]
+proc-macro = true
+
+[dependencies]
+darling = "0.20.10"
+proc-macro2 = "1.0.86"
+quote = "1.0.36"
+syn = { version = "2.0.70", features = ["fold"] }

@@ -1,0 +1,36 @@
+@keyframes animation_toast {
+	0% {
+		opacity: 0;
+		transform: translateY(32px);
+	}
+	15% {
+		opacity: 1;
+		transform: none;
+	}
+	95% {
+		opacity: 1;
+		transform: none;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes animation_toast_fade {
+	100% {
+		opacity: 0;
+	}
+}
+
+.overlay_toasts {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	height: 100%;
+	justify-content: flex-end;
+	padding-bottom: 16px;
+	pointer-events: none;
+	position: fixed;
+	width: 100%;
+}

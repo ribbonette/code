@@ -1,0 +1,31 @@
+cargo-features = ["edition2024"]
+
+[package]
+name = "ribbon_commands_core"
+description = "anonymous mail prototype"
+
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+homepage.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+async-trait = "0.1.81"
+futures.workspace = true
+
+ribbon_cache.path = "../ribbon_cache"
+ribbon_commands_core_macros.path = "../ribbon_commands_core_macros"
+ribbon_models.path = "../ribbon_models"
+ribbon_util.path = "../ribbon_util"
+
+serde.workspace = true
+serde_repr.workspace = true
+sqlx.workspace = true
+
+thiserror.workspace = true
+twilight-http.workspace = true
+twilight-model.workspace = true
+twilight-util.workspace = true
