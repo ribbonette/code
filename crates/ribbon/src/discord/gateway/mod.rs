@@ -11,7 +11,7 @@ pub fn initialise() -> MessageSender {
 	info!("initialising discord gateway");
 
 	let config = ConfigBuilder::new(
-		env!("DISCORD_BOT_TOKEN").to_string(),
+		std::env::var("DISCORD_BOT_TOKEN").unwrap(),
 			Intents::GUILDS |
 			Intents::GUILD_MEMBERS
 	)

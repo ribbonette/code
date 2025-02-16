@@ -4,6 +4,7 @@ use actix_web::{
 	get
 };
 use chrono::{ TimeDelta, Utc };
+use once_cell::sync::Lazy;
 use ribbon_cache::CACHE;
 use ribbon_models::ribbon::{
 	open_cloud_authorisation::{ OpenCloudAuthorisationMetadata, OpenCloudAuthorisationModel },
@@ -17,6 +18,7 @@ use ribbon_util::{
 use serde::Deserialize;
 use serde_aux::field_attributes::deserialize_number_from_string;
 use std::collections::HashMap;
+use std::env::var;
 
 use crate::{
 	error::ErrorModelKind,
@@ -54,8 +56,8 @@ pub struct RobloxUser {
 	pub picture: Option<String>
 }
 
-const ROBLOX_APP_ID: &str = env!("ROBLOX_APP_ID");
-const ROBLOX_APP_SECRET: &str = env!("ROBLOX_APP_SECRET");
+static ROBLOX_APP_ID: Lazy<String> = Lazy::new(|| var("ROBLOX_APP_ID").unwrap());
+static ROBLOX_APP_SECRET: Lazy<String> = Lazy::new(|| var("ROBLOX_APP_SECRET").unwrap());
 
 #[get("roblox_callback")]
 async fn roblox_callback(query: web::Query<CallbackQuery>) -> Result<impl Responder> {
@@ -64,8 +66,8 @@ async fn roblox_callback(query: web::Query<CallbackQuery>) -> Result<impl Respon
 		.ok_or(ErrorModelKind::InvalidQuery)?;
 
 	let params = HashMap::from([
-		("client_id", ROBLOX_APP_ID.into()),
-		("client_secret", ROBLOX_APP_SECRET.into()),
+		("client_id", ROBLOX_APP_ID.clone()),
+		("client_secret", ROBLOX_APP_SECRET.clone()),
 		("code", code),
 		("grant_type", "authorization_code".into())
 	]);

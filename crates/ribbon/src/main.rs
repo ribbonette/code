@@ -28,6 +28,7 @@ struct Args {
 
 #[tokio::main(flavor = "multi_thread")]
 async fn main() -> Result<()> {
+	dotenvy::dotenv()?;
 	env_logger::Builder::from_env(Env::default().default_filter_or("info")).init();
 
 	info!("starting Ribbon v{}", env!("CARGO_PKG_VERSION"));
@@ -64,7 +65,7 @@ async fn main() -> Result<()> {
 		info!("successfully updated global commands");
 	} else {
 		info!("establishing database connection pool...");
-		let pg_pool = match PgPool::connect(env!("DATABASE_URL")).await {
+		let pg_pool = match PgPool::connect(&std::env::var("DATABASE_URL").unwrap()).await {
 			Ok(x) => x,
 			Err(error) => panic!("failed to establish a connection to the database, is it offline?\n{error}")
 		};

@@ -8,15 +8,16 @@ use once_cell::sync::Lazy;
 use ribbon_cache::CACHE;
 use ribbon_models::ribbon::user::SessionModel;
 use serde::Deserialize;
+use std::env::var;
 use std::ops::Deref;
 
 use crate::{ error::ErrorModelKind, Result };
 
-pub const AUTH_JWT_DOMAIN: &str = env!("AUTH_JWT_DOMAIN");
+pub static AUTH_JWT_DOMAIN: Lazy<String> = Lazy::new(|| var("AUTH_JWT_DOMAIN").unwrap());
 pub const AUTH_JWT_DURATION: Duration = Duration::days(365);
-pub const AUTH_JWT_KEY: &[u8] = env!("AUTH_JWT_KEY").as_bytes();
-pub static DECODING_KEY: Lazy<DecodingKey> = Lazy::new(|| DecodingKey::from_secret(AUTH_JWT_KEY));
-pub static ENCODING_KEY: Lazy<EncodingKey> = Lazy::new(|| EncodingKey::from_secret(AUTH_JWT_KEY));
+pub static AUTH_JWT_KEY: Lazy<Vec<u8>> = Lazy::new(|| var("AUTH_JWT_KEY").unwrap().into_bytes());
+pub static DECODING_KEY: Lazy<DecodingKey> = Lazy::new(|| DecodingKey::from_secret(&AUTH_JWT_KEY));
+pub static ENCODING_KEY: Lazy<EncodingKey> = Lazy::new(|| EncodingKey::from_secret(&AUTH_JWT_KEY));
 pub static VALIDATION: Lazy<Validation> = Lazy::new(|| {
 	let mut validation = Validation::new(Algorithm::HS256);
 	validation.required_spec_claims.clear();

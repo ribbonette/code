@@ -21,7 +21,7 @@ pub struct MembershipModel {
 impl MembershipModel {
 	pub async fn get_user_many(user_id: u64) -> Result<Vec<Self>> {
 		let response: GroupMemberships = get_json("https://apis.roblox.com/cloud/v2/groups/-/memberships")
-			.header("x-api-key", ROBLOX_OPEN_CLOUD_KEY)
+			.header("x-api-key", ROBLOX_OPEN_CLOUD_KEY.as_str())
 			.query(&[
 				("filter", format!("user == 'users/{user_id}'")),
 				("maxPageSize", "100".to_string())

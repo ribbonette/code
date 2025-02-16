@@ -72,7 +72,7 @@ async fn quick_link(MultipartForm(payload): MultipartForm<QuickLinkPayload>) -> 
 	if AUTH_JWT_DOMAIN.is_empty() {
 		new_jwt_cookie_builder = new_jwt_cookie_builder.secure(false);
 	} else {
-		new_jwt_cookie_builder = new_jwt_cookie_builder.domain(AUTH_JWT_DOMAIN);
+		new_jwt_cookie_builder = new_jwt_cookie_builder.domain(AUTH_JWT_DOMAIN.clone());
 	}
 	
 	let new_jwt_cookie = new_jwt_cookie_builder.finish();

@@ -11,7 +11,7 @@ pub mod group;
 #[command(slash, context = "guild", description = "Acquire a quick-link to this server's Ribbon Dashboard.", default_member_permissions = "32")]
 pub async fn dashboard(context: Context) -> Result<()> {
 	let new_quick_link = WebsiteQuickLinkModel::new(context.author_id().unwrap(), context.guild_id());
-	let website_url = format!("{DASHBOARD_URL}/auth/quick_link#{}", new_quick_link.id);
+	let website_url = format!("{}/auth/quick_link#{}", DASHBOARD_URL.as_str(), new_quick_link.id);
 	CACHE
 		.ribbon
 		.website_quick_links

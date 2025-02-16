@@ -8,6 +8,9 @@ pub enum Error {
 
 	#[error("Command Core: {0}")]
 	CommandCore(#[from] ribbon_commands_core::CoreError),
+	
+	#[error("Dotenvy: {0}")]
+	Dotenvy(#[from] dotenvy::Error),
 
 	#[error("I/O: {0}")]
 	Io(#[from] std::io::Error),

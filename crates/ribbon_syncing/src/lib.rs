@@ -68,7 +68,7 @@ impl SyncOperation {
 						.authorise_requests
 						.entry(request.id.clone())
 						.insert(request);
-					format!("{WEBSITE_URL}/roblox_request/{}", request.key())
+					format!("{}/roblox_request/{}", WEBSITE_URL.as_str(), request.key())
 				};
 				DISCORD_INTERACTION_CLIENT
 					.create_response(interaction.id, &interaction.token, &InteractionResponse {
