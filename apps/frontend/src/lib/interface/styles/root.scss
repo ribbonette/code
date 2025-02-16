@@ -10,11 +10,10 @@
 body {
 	background: hsl(315 10% 10%);
 	color: #fff;
-	display: flex;
-	flex-direction: column;
 	font-family: 'geist_sans';
 	height: 100vh;
 	margin: 0;
 	max-height: 100vh;
+	overflow: hidden auto;
 	width: 100%;
 }

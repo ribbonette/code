@@ -16,6 +16,7 @@ export default {
 		sveltekit()
 	],
 	server: {
+		allowedHosts: true,
 		port: 5173,
 		strictPort: true
 	}

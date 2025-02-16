@@ -30,7 +30,8 @@
 	},
 	"dependencies": {
 		"@vercel/analytics": "^1.5.0",
-		"@vercel/speed-insights": "^1.2.0"
+		"@vercel/speed-insights": "^1.2.0",
+		"mdsvex": "^0.12.3"
 	},
 	"packageManager": "yarn@1.22.22"
 }
