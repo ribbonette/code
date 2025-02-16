@@ -1,6 +1,6 @@
 CREATE TABLE open_cloud_authorisations (
 	id bigserial primary key,
-	author_id bigint REFERENCES users(id),
+	author_id bigint REFERENCES users(id) NOT NULL,
 
 	access_token text NOT NULL,
 	refresh_token text NOT NULL,
